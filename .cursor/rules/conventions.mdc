@@ -1,0 +1,48 @@
+---
+description: Coding conventions for Cascade Goods. Apply on every prompt.
+alwaysApply: true
+---
+
+# Coding conventions
+
+## TypeScript
+
+- Always use TypeScript. New files are `.ts` or `.tsx`.
+- Import types with `import type { ... }` to keep runtime imports clean.
+- Avoid `any`. If the type is genuinely unknown, prefer `unknown` and narrow.
+- Use `interface` for object shapes that may be extended, and `type` for unions and aliases.
+
+## React
+
+- Use function components only. No class components.
+- Default to named exports for components (e.g. `export function Header() { ... }`).
+- The single exception is `App.tsx`, which uses a default export to play nicely with `main.tsx`.
+- Keep components focused. If a page file grows past ~250 lines, factor pieces into `src/components/`.
+- Use `useState`/`useMemo`/`useCallback` only when there's a real need. Don't reach for them by default.
+
+## Styling
+
+- All styling goes through Tailwind utility classes. Avoid inline `style` props except for truly dynamic values.
+- Use the CSS custom properties defined in `src/index.css` (e.g. `bg-[var(--color-brand)]`) instead of hardcoded hex values. This keeps re-theming a one-file change.
+- Use the `cn()` helper from `@/lib/utils` to compose conditional class names.
+- Use the `Button`, `Badge`, `Container`, and `StarRating` primitives from `src/components/ui/` rather than rolling new ones.
+
+## Imports
+
+- Use the `@/` path alias for anything inside `src/` (e.g. `import { cn } from "@/lib/utils"`). Avoid long relative paths like `../../../`.
+- Group imports: external packages first, then `@/` aliased imports, then sibling files. A blank line between groups is fine but not required.
+
+## State
+
+- Cart state lives in the Zustand store at `src/store/cart.ts`. Don't duplicate cart logic in components — call the store directly.
+- For local UI state (modals, hover, form fields), use `useState`. Don't reach for global state for these.
+
+## Data
+
+- Product/category/review data lives in `src/data/`. Helper selectors (`getProductBySlug`, `getFeaturedProducts`, etc.) live in the same file as the data they query.
+- `Product`, `Category`, and `Review` types are defined in `src/lib/types.ts`. Update the type first when adding a new product field.
+
+## Formatting
+
+- 2-space indentation, double quotes, semicolons. Prettier defaults are fine.
+- Prefer trailing commas on multi-line literals.

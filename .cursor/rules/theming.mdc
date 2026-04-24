@@ -1,0 +1,40 @@
+---
+description: How to theme Cascade Goods. Apply when changing visual styling, colors, fonts, or branding.
+globs:
+  - src/index.css
+  - src/components/**/*.tsx
+  - src/pages/**/*.tsx
+---
+
+# Theming
+
+The entire visual identity of Cascade Goods is driven by CSS custom properties defined inside the `@theme { ... }` block in `src/index.css`. To re-theme the site (for example, to match a Salesforce or other brand palette), the only file that needs to change is `src/index.css` — every component reads colors, radii, and font families through these tokens.
+
+## Token categories
+
+- **Brand**: `--color-brand`, `--color-brand-foreground`, `--color-brand-muted`, `--color-accent`, `--color-accent-foreground`
+- **Surfaces**: `--color-background`, `--color-foreground`, `--color-card`, `--color-card-foreground`, `--color-muted`, `--color-muted-foreground`, `--color-border`, `--color-input`, `--color-ring`
+- **Status**: `--color-success`, `--color-destructive`, `--color-destructive-foreground`
+- **Typography**: `--font-sans`, `--font-display`
+- **Radii**: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`
+
+## Using tokens in components
+
+Reference tokens via Tailwind's arbitrary value syntax, for example:
+
+```tsx
+<button className="bg-[var(--color-brand)] text-[var(--color-brand-foreground)] rounded-[var(--radius-md)]">
+  Add to cart
+</button>
+```
+
+Do not introduce hardcoded hex colors (`bg-blue-500`, `text-#1f2937`, etc.) in components. If a color isn't covered by an existing token, add a new token in `src/index.css` first, then reference it.
+
+## When asked to re-theme
+
+If the user asks for a new palette (for example: "re-theme this site in Salesforce blue"):
+
+1. Update only the values inside `@theme { ... }` in `src/index.css`.
+2. Pick coordinated values for `--color-brand`, `--color-accent`, and the supporting muted/border colors.
+3. Verify contrast: foreground tokens must remain readable against their corresponding background tokens.
+4. Do not modify component files for a re-theme — if you find yourself doing so, the token system is missing a token; add it instead.

@@ -1,0 +1,36 @@
+---
+description: How to add or modify products. Apply when working in src/data/ or adding product features.
+globs:
+  - src/data/*.ts
+  - src/lib/types.ts
+---
+
+# Adding or modifying products
+
+All product, category, and review data lives in `src/data/`. There is no backend.
+
+## Adding a new product
+
+1. Open `src/data/products.ts` and append a new entry to the `products` array.
+2. Required fields: `id`, `slug`, `name`, `tagline`, `description`, `price`, `category`, `image`, `colors`, `rating`, `reviewCount`, `inStock`, `features`.
+3. Use a unique `id` (existing ids follow `p_001`, `p_002`, ...).
+4. Use a kebab-case `slug`. The slug becomes the URL: `/products/<slug>`.
+5. Use the `img(seed)` helper at the top of the file for placeholder imagery, with a unique seed string.
+6. The `category` value must be one of the categories in `src/data/categories.ts`.
+7. Optional flags: `isNew`, `isBestseller`, `compareAtPrice` (for sale price), `sizes`, `materials`, `images` (for the gallery on the detail page).
+
+## Adding a new product field
+
+1. First, update the `Product` interface in `src/lib/types.ts`. This is the source of truth.
+2. Add the field to every existing product in `src/data/products.ts` (or make the field optional in the type).
+3. Then update consumers (`ProductCard`, `ProductDetailPage`, etc.) to render the new field.
+
+## Adding a new category
+
+1. Add an entry to `categories` in `src/data/categories.ts`.
+2. Add the new category id to the `Category` union in `src/lib/types.ts`.
+3. The category will automatically appear in the sidebar on `/products` and the footer.
+
+## Helper selectors
+
+When you need to query products from a component, prefer adding (or reusing) a selector in `src/data/products.ts` like `getFeaturedProducts(limit)` rather than filtering inline in the component. This keeps data access in one place.

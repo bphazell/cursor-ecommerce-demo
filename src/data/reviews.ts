@@ -1,0 +1,88 @@
+import type { Review } from "@/lib/types";
+
+export const reviews: Review[] = [
+  {
+    id: "r_001",
+    productId: "p_001",
+    author: "Marcus T.",
+    rating: 5,
+    title: "Survived a week of Pacific Northwest rain",
+    body: "Wore this every day in Olympic National Park. Stayed bone dry through three solid downpours. The hood actually fits over a climbing helmet, which I didn't expect.",
+    date: "2025-09-12",
+    verified: true,
+  },
+  {
+    id: "r_002",
+    productId: "p_001",
+    author: "Priya K.",
+    rating: 4,
+    title: "Great shell, runs slightly large",
+    body: "Excellent waterproofing and the cut is more flattering than most shells I've owned. I'd size down if you're between sizes.",
+    date: "2025-08-24",
+    verified: true,
+  },
+  {
+    id: "r_003",
+    productId: "p_002",
+    author: "Daniel W.",
+    rating: 5,
+    title: "Thickest flannel I own",
+    body: "Heavyweight is right. This thing is basically a jacket on its own. Held up to a winter of daily wear with zero pilling.",
+    date: "2025-11-02",
+    verified: true,
+  },
+  {
+    id: "r_004",
+    productId: "p_003",
+    author: "Sam L.",
+    rating: 5,
+    title: "Bought five",
+    body: "I've owned a lot of t-shirts. These hold their shape, the neck doesn't stretch out, and the length is exactly right.",
+    date: "2025-10-18",
+    verified: true,
+  },
+  {
+    id: "r_005",
+    productId: "p_005",
+    author: "Jordan R.",
+    rating: 5,
+    title: "My new everything pant",
+    body: "Wore them on a 6 mile hike, then to dinner, then on a flight the next morning. They look identical after a wash. The stretch is real.",
+    date: "2025-09-30",
+    verified: true,
+  },
+  {
+    id: "r_006",
+    productId: "p_007",
+    author: "Elena C.",
+    rating: 4,
+    title: "Comfortable, takes a few wears to break in",
+    body: "First two days I thought I'd made a mistake. By day five they're the most comfortable shoes I own. The merino lining is a real difference-maker.",
+    date: "2025-08-08",
+    verified: true,
+  },
+  {
+    id: "r_007",
+    productId: "p_008",
+    author: "Tom B.",
+    rating: 5,
+    title: "Will outlast me",
+    body: "Goodyear-welted, full-grain leather, and a Vibram sole. These are an investment but you'll have them in 20 years. Already developed a beautiful patina.",
+    date: "2025-07-22",
+    verified: true,
+  },
+  {
+    id: "r_008",
+    productId: "p_011",
+    author: "Maya H.",
+    rating: 5,
+    title: "Spoiled now",
+    body: "I cannot wear normal socks anymore. I rotate three pairs of these and my feet are happier than they have any right to be.",
+    date: "2025-10-05",
+    verified: true,
+  },
+];
+
+export function getReviewsForProduct(productId: string): Review[] {
+  return reviews.filter((r) => r.productId === productId);
+}
