@@ -197,9 +197,11 @@ export function CartPage() {
                 </p>
               )}
 
-              <Button size="lg" className="mt-6 w-full">
-                Checkout
-              </Button>
+              <Link to="/checkout" className="mt-6 block">
+                <Button size="lg" className="w-full">
+                  Checkout
+                </Button>
+              </Link>
 
               <p className="mt-3 text-center text-xs text-[var(--color-muted-foreground)]">
                 Secure checkout. Free returns within 30 days.
