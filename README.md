@@ -52,13 +52,17 @@ src/
 
 ## Routes
 
-| Path | Page |
-| --- | --- |
-| `/` | Home — hero, categories, bestsellers, new arrivals |
-| `/products` | Product listing with category filter (`?category=outerwear`) and sort |
-| `/products/:slug` | Product detail with gallery, color/size, reviews, related products |
-| `/cart` | Cart with quantity controls and order summary |
-| `/about` | Brand story, sustainability, warranty, shipping, contact |
+
+| Path              | Page                                                                  |
+| ----------------- | --------------------------------------------------------------------- |
+| `/`               | Home — hero, categories, bestsellers, new arrivals                    |
+| `/products`       | Product listing with category filter (`?category=outerwear`) and sort |
+| `/products/:slug` | Product detail with gallery, color/size, reviews, related products    |
+| `/cart`           | Cart with quantity controls and order summary                         |
+| `/checkout`       | Shipping form and order summary                                       |
+| `/checkout/success` | Order confirmation with order number and shipping details           |
+| `/about`          | Brand story, sustainability, warranty, shipping, contact              |
+
 
 ## Customizing
 
@@ -90,5 +94,6 @@ To use your own images, either replace the photo IDs (any Unsplash photo URL con
 
 ## Notes
 
-- There is no checkout backend — the cart page is a UI-only flow.
+- The checkout flow is UI-only — no real payment is processed. Order details are stashed in `sessionStorage` under `cascade-last-order` so the confirmation page survives a refresh.
 - The cart persists across reloads via `localStorage` under the key `cascade-cart`. Clear it with `localStorage.removeItem('cascade-cart')` if you need a clean slate.
+

@@ -21,3 +21,8 @@ export function formatDate(iso: string): string {
     day: "numeric",
   });
 }
+
+export function generateOrderNumber(): string {
+  const random = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return `CG-${random}`;
+}

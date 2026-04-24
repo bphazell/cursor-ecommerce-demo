@@ -45,3 +45,33 @@ export interface Review {
   date: string;
   verified: boolean;
 }
+
+export interface ShippingAddress {
+  name: string;
+  email: string;
+  address: string;
+  zip: string;
+}
+
+export interface OrderLine {
+  productId: string;
+  productSlug: string;
+  productName: string;
+  productImage: string;
+  selectedSize?: string;
+  selectedColor?: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+}
+
+export interface Order {
+  orderNumber: string;
+  placedAt: string;
+  items: OrderLine[];
+  shipping: ShippingAddress;
+  subtotal: number;
+  shippingCost: number;
+  tax: number;
+  total: number;
+}
