@@ -1,26 +1,22 @@
 ---
-description: How to theme Cascade Goods. Apply when changing visual styling, colors, fonts, or branding.
-globs:
-  - src/index.css
-  - src/components/**/*.tsx
-  - src/pages/**/*.tsx
+description: How to re-theme Cascade Goods (palette, typography, radii). Apply when the user asks for visual styling, branding, or color changes.
+alwaysApply: false
 ---
 
 # Theming
 
-The entire visual identity of Cascade Goods is driven by CSS custom properties defined inside the `@theme { ... }` block in `src/index.css`. To re-theme the site (for example, to match a Salesforce or other brand palette), the only file that needs to change is `src/index.css` — every component reads colors, radii, and font families through these tokens.
+The entire visual identity of Cascade Goods is driven by CSS custom properties inside the `@theme { ... }` block in [src/index.css](mdc:src/index.css). Every component reads colors, radii, and fonts through these tokens, so re-theming should touch one file.
 
-## Token categories
+## When asked to re-theme (e.g. "re-theme this site in Salesforce blue")
 
-- **Brand**: `--color-brand`, `--color-brand-foreground`, `--color-brand-muted`, `--color-accent`, `--color-accent-foreground`
-- **Surfaces**: `--color-background`, `--color-foreground`, `--color-card`, `--color-card-foreground`, `--color-muted`, `--color-muted-foreground`, `--color-border`, `--color-input`, `--color-ring`
-- **Status**: `--color-success`, `--color-destructive`, `--color-destructive-foreground`
-- **Typography**: `--font-sans`, `--font-display`
-- **Radii**: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`
+1. Edit only the values inside `@theme { ... }` in [src/index.css](mdc:src/index.css). Do not modify component files.
+2. Update the brand, accent, and supporting surface/border tokens together so the palette stays coordinated.
+3. Verify contrast: each `*-foreground` token must remain readable against its paired background token.
+4. If you find yourself wanting to change a component file to apply the new theme, the token system is missing a token — add the token in `index.css` and reference it from the component instead.
 
 ## Using tokens in components
 
-Reference tokens via Tailwind's arbitrary value syntax, for example:
+Reference tokens via Tailwind's arbitrary value syntax:
 
 ```tsx
 <button className="bg-[var(--color-brand)] text-[var(--color-brand-foreground)] rounded-[var(--radius-md)]">
@@ -28,13 +24,4 @@ Reference tokens via Tailwind's arbitrary value syntax, for example:
 </button>
 ```
 
-Do not introduce hardcoded hex colors (`bg-blue-500`, `text-#1f2937`, etc.) in components. If a color isn't covered by an existing token, add a new token in `src/index.css` first, then reference it.
-
-## When asked to re-theme
-
-If the user asks for a new palette (for example: "re-theme this site in Salesforce blue"):
-
-1. Update only the values inside `@theme { ... }` in `src/index.css`.
-2. Pick coordinated values for `--color-brand`, `--color-accent`, and the supporting muted/border colors.
-3. Verify contrast: foreground tokens must remain readable against their corresponding background tokens.
-4. Do not modify component files for a re-theme — if you find yourself doing so, the token system is missing a token; add it instead.
+Never introduce hardcoded colors (`bg-blue-500`, `text-[#1f2937]`, etc.) in components. If a needed color isn't covered by an existing token in [src/index.css](mdc:src/index.css), add a new token there first, then reference it.

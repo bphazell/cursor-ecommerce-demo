@@ -1,0 +1,25 @@
+---
+description: Cascade Goods project context, file map, and project-specific conventions
+alwaysApply: true
+---
+
+# Cascade Goods
+
+A frontend-only e-commerce demo (Vite + React 19 + TypeScript + Tailwind v4 + React Router + Zustand). Built to demo Cursor capabilities live in front of an audience, so keep changes small, readable, and runnable.
+
+There is no backend. All product, category, and review data lives in [src/data/](mdc:src/data).
+
+## File map
+
+- Routes are declared in [App.tsx](mdc:src/App.tsx). Pages are in [src/pages/](mdc:src/pages).
+- Layout chrome (`Header`, `Footer`, `CartDrawer`) is in [src/components/layout/](mdc:src/components/layout).
+- Reusable UI primitives (`Button`, `Badge`, `Container`, `StarRating`) are in [src/components/ui/](mdc:src/components/ui). Add new primitives here, not inside feature folders.
+- Mock data and selectors live alongside each other in [src/data/](mdc:src/data). When adding a product, mirror the existing entries in [products.ts](mdc:src/data/products.ts) and update the type in [types.ts](mdc:src/lib/types.ts) if you add a new field.
+- Cart state is a Zustand store in [cart.ts](mdc:src/store/cart.ts), persisted to `localStorage` under `cascade-cart`. Don't duplicate cart logic in components — call the store.
+
+## Project-specific conventions
+
+- **Path alias:** import from `@/...` for anything in `src/` (configured in [vite.config.ts](mdc:vite.config.ts)). Avoid `../../../` paths.
+- **Class names:** compose conditional classes with `cn()` from [utils.ts](mdc:src/lib/utils.ts).
+- **Colors and radii:** never hardcode hex values or Tailwind color classes (`bg-blue-500`). Always reference the CSS custom properties defined in [index.css](mdc:src/index.css) via `bg-[var(--color-brand)]`. See `theming.mdc` for details.
+- **Routing:** the `/products` page reads its filter from the `?category=` query param. Link with `<Link to="/products?category=outerwear">` rather than separate routes per category.
