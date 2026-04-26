@@ -1,41 +1,38 @@
 @import "tailwindcss";
 
 /*
- * Cascade Goods Theme
+ * Cascade Goods Theme — Salesforce-aligned (SLDS-inspired tokens)
  *
- * The entire visual identity is driven by these CSS custom properties.
- * To re-theme the site (e.g., to Salesforce blue), only the values below
- * need to change. All components reference these via Tailwind utilities
- * like `bg-brand`, `text-brand-foreground`, etc.
+ * Brand: Cloud Blue (#00A1E0). Surfaces and neutrals follow SLDS-style cools.
+ * Components reference these via Tailwind / var(--color-*).
  */
 @theme {
   /* Brand colors */
-  --color-brand: #1f2937;
+  --color-brand: #00a1e0;
   --color-brand-foreground: #ffffff;
-  --color-brand-muted: #6b7280;
-  --color-accent: #f59e0b;
-  --color-accent-foreground: #1f2937;
+  --color-brand-muted: #54698d;
+  --color-accent: #032d60;
+  --color-accent-foreground: #ffffff;
 
   /* Surfaces */
-  --color-background: #fafaf9;
-  --color-foreground: #1c1917;
+  --color-background: #f3f2f2;
+  --color-foreground: #181818;
   --color-card: #ffffff;
-  --color-card-foreground: #1c1917;
-  --color-muted: #f5f5f4;
-  --color-muted-foreground: #78716c;
-  --color-border: #e7e5e4;
-  --color-input: #e7e5e4;
-  --color-ring: #1f2937;
+  --color-card-foreground: #181818;
+  --color-muted: #ecebea;
+  --color-muted-foreground: #706e6b;
+  --color-border: #dddbda;
+  --color-input: #dddbda;
+  --color-ring: #0176d3;
 
-  /* Status */
-  --color-success: #16a34a;
-  --color-destructive: #dc2626;
+  /* Status (SLDS-adjacent) */
+  --color-success: #2e844a;
+  --color-destructive: #ea001e;
   --color-destructive-foreground: #ffffff;
 
-  /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Typography — enterprise system stack (Segoe on Windows) */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Radii */
   --radius-sm: 0.25rem;

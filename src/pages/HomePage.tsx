@@ -62,7 +62,7 @@ export function HomePage() {
 
             <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-card)]">
               <img
-                src="https://images.unsplash.com/photo-1764622737791-5d1d914a366c?w=1200&q=80&auto=format&fit=crop"
+                src="/catalog/hero.jpg"
                 alt="Misty mountains in the Pacific Northwest"
                 className="h-full w-full object-cover"
               />
