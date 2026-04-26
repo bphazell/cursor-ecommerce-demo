@@ -1,31 +1,34 @@
 @import "tailwindcss";
 
 /*
- * Cascade Goods Theme
+ * Cascade Goods Theme — Enterprise Blue (Cloud Blue)
  *
  * The entire visual identity is driven by these CSS custom properties.
- * To re-theme the site (e.g., to Salesforce blue), only the values below
- * need to change. All components reference these via Tailwind utilities
- * like `bg-brand`, `text-brand-foreground`, etc.
+ * To re-theme the site, only the values below need to change. All
+ * components reference these via Tailwind utilities like
+ * `bg-[var(--color-brand)]`, `text-[var(--color-brand-foreground)]`, etc.
  */
 @theme {
   /* Brand colors */
-  --color-brand: #1f2937;
+  --color-brand: #00a1e0;
   --color-brand-foreground: #ffffff;
-  --color-brand-muted: #6b7280;
-  --color-accent: #f59e0b;
-  --color-accent-foreground: #1f2937;
+  --color-brand-muted: #54698d;
+  --color-accent: #1b96ff;
+  --color-accent-foreground: #181818;
+
+  /* Rating fill (kept warm so star ratings still read as ratings) */
+  --color-rating: #fe9339;
 
   /* Surfaces */
-  --color-background: #fafaf9;
-  --color-foreground: #1c1917;
+  --color-background: #f3f3f2;
+  --color-foreground: #181818;
   --color-card: #ffffff;
-  --color-card-foreground: #1c1917;
-  --color-muted: #f5f5f4;
-  --color-muted-foreground: #78716c;
-  --color-border: #e7e5e4;
-  --color-input: #e7e5e4;
-  --color-ring: #1f2937;
+  --color-card-foreground: #181818;
+  --color-muted: #ecebea;
+  --color-muted-foreground: #706e6b;
+  --color-border: #dddbda;
+  --color-input: #dddbda;
+  --color-ring: #0176d3;
 
   /* Status */
   --color-success: #16a34a;
