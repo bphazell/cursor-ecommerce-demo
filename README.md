@@ -82,9 +82,9 @@ Shared types (`Product`, `Category`, `Review`) live in `src/lib/types.ts`. If yo
 
 ### Imagery
 
-Product, category, and hero photos are hosted on the Unsplash CDN (`images.unsplash.com`) and used under the [Unsplash License](https://unsplash.com/license). Photo IDs are baked into `src/data/products.ts` and `src/data/categories.ts` via a small `img(id)` / `banner(id)` helper, so swapping a photo is a one-line change per product.
+Product, category, and hero images live under `public/catalog/` (served as `/catalog/...`) so the demo loads without external CDNs. Paths are built in `src/data/products.ts` and `src/data/categories.ts` from each product `slug`.
 
-To use your own images, either replace the photo IDs (any Unsplash photo URL contains the ID after `photo-`) or change the helper to point at a different host or local `src/assets/` folder.
+To swap art, replace the JPEG in `public/catalog/products/<slug>.jpg` or run `scripts/generate-catalog-placeholders.py` to regenerate solid-color placeholders.
 
 ### Add a new page
 
