@@ -1,14 +1,5 @@
 import type { Product } from "@/lib/types";
 
-/**
- * Build an Unsplash CDN URL for a product photo.
- *
- * Photos are credited inline alongside each product. All images are used
- * under the Unsplash License (https://unsplash.com/license).
- */
-const img = (id: string, w = 1000) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
-
 export const products: Product[] = [
   {
     id: "p_001",
@@ -20,7 +11,7 @@ export const products: Product[] = [
     price: 248,
     compareAtPrice: 295,
     category: "outerwear",
-    image: img("1559022488-570ad0c1e43c"),
+    image: "/images/products/p_001.jpg", // unsplash:1559022488-570ad0c1e43c
     colors: ["Slate", "Moss", "Ember"],
     sizes: ["XS", "S", "M", "L", "XL"],
     rating: 4.7,
@@ -44,7 +35,7 @@ export const products: Product[] = [
       "We brushed an organic cotton twill on both sides for a flannel that feels broken-in from the first wear. Roomy through the chest, tapered through the hem, and finished with corozo buttons.",
     price: 118,
     category: "tops",
-    image: img("1604936509922-a0ae4fd19e3e"),
+    image: "/images/products/p_002.jpg", // unsplash:1604936509922-a0ae4fd19e3e
     colors: ["Rust Plaid", "Spruce Plaid", "Dune Plaid"],
     sizes: ["S", "M", "L", "XL"],
     rating: 4.8,
@@ -67,7 +58,7 @@ export const products: Product[] = [
       "A 6.5 oz long-staple cotton jersey with a relaxed fit and a hem that sits exactly where you want it. Sold in three-packs because you'll want backups.",
     price: 38,
     category: "tops",
-    image: img("1627225793904-a2f900a6e4cf"),
+    image: "/images/products/p_003.jpg", // unsplash:1627225793904-a2f900a6e4cf
     colors: ["Bone", "Slate", "Moss", "Ember", "Black"],
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
     rating: 4.6,
@@ -89,7 +80,7 @@ export const products: Product[] = [
       "Responsibly sourced 800-fill down stuffed into a recycled ripstop shell. Packs into its own chest pocket and weighs less than a paperback.",
     price: 175,
     category: "outerwear",
-    image: img("1573513500284-ca52c282f78a"),
+    image: "/images/products/p_004.jpg", // unsplash:1573513500284-ca52c282f78a
     colors: ["Slate", "Ember", "Bone"],
     sizes: ["XS", "S", "M", "L", "XL"],
     rating: 4.5,
@@ -112,7 +103,7 @@ export const products: Product[] = [
       "A four-way stretch nylon with the drape of a chino. Gusseted crotch and articulated knees mean you can crouch, climb, or sit cross-legged at a coffee shop without complaint.",
     price: 128,
     category: "bottoms",
-    image: img("1473966968600-fa801b869a1a"),
+    image: "/images/products/p_005.jpg", // unsplash:1473966968600-fa801b869a1a
     colors: ["Slate", "Olive", "Bone"],
     sizes: ["28", "30", "32", "34", "36", "38"],
     rating: 4.7,
@@ -135,7 +126,7 @@ export const products: Product[] = [
       "A 7-inch inseam, four-way stretch, and a hidden zip pocket. Wear them in the ocean, then walk straight into dinner.",
     price: 78,
     category: "bottoms",
-    image: img("1719473458937-d42f1f9aad00"),
+    image: "/images/products/p_006.jpg", // unsplash:1719473458937-d42f1f9aad00
     colors: ["Slate", "Sand", "Spruce"],
     sizes: ["XS", "S", "M", "L", "XL"],
     rating: 4.4,
@@ -156,7 +147,7 @@ export const products: Product[] = [
       "A merino-lined upper sits on top of a cork-blend midsole and natural rubber outsole. Nothing flashy. Goes with everything you already own.",
     price: 168,
     category: "footwear",
-    image: img("1625860191460-10a66c7384fb"),
+    image: "/images/products/p_007.jpg", // unsplash:1625860191460-10a66c7384fb
     colors: ["Bone", "Slate", "Moss"],
     sizes: ["7", "8", "9", "10", "11", "12", "13"],
     rating: 4.6,
@@ -179,7 +170,7 @@ export const products: Product[] = [
       "Full-grain Horween leather, Goodyear-welt construction, and a Vibram sole. Resole as many times as you need to.",
     price: 325,
     category: "footwear",
-    image: img("1620827252031-146d52644aac"),
+    image: "/images/products/p_008.jpg", // unsplash:1620827252031-146d52644aac
     colors: ["Walnut", "Black"],
     sizes: ["7", "8", "9", "10", "11", "12", "13"],
     rating: 4.9,
@@ -201,7 +192,7 @@ export const products: Product[] = [
       "12 oz waxed canvas, a vegetable-tanned leather base, and brass hardware. Holds a laptop, groceries, or an embarrassing number of books.",
     price: 148,
     category: "accessories",
-    image: img("1758818005874-f555e0932ef3"),
+    image: "/images/products/p_009.jpg", // unsplash:1758818005874-f555e0932ef3
     colors: ["Field Tan", "Charcoal"],
     rating: 4.8,
     reviewCount: 209,
@@ -221,7 +212,7 @@ export const products: Product[] = [
       "Cotton twill, an unstructured crown, and a curved brim. Comes in three colors that go with literally everything.",
     price: 42,
     category: "accessories",
-    image: img("1720534490358-bc2ad29d51d5"),
+    image: "/images/products/p_010.jpg", // unsplash:1720534490358-bc2ad29d51d5
     colors: ["Bone", "Slate", "Moss"],
     rating: 4.5,
     reviewCount: 318,
@@ -237,7 +228,7 @@ export const products: Product[] = [
       "A merino-nylon blend that wicks moisture, regulates temperature, and survives a wash cycle without complaint.",
     price: 38,
     category: "accessories",
-    image: img("1664735245539-69a4846823ce"),
+    image: "/images/products/p_011.jpg", // unsplash:1664735245539-69a4846823ce
     colors: ["Mixed Earth", "Mixed Slate", "All Black"],
     sizes: ["S/M", "L/XL"],
     rating: 4.7,
@@ -255,7 +246,7 @@ export const products: Product[] = [
       "Brushed stainless steel, a counter-balanced handle, and a precise goose-neck spout. Looks as good on the stove as it does in the cupboard.",
     price: 95,
     category: "home",
-    image: img("1768674150936-1d2044ba32d6"),
+    image: "/images/products/p_012.jpg", // unsplash:1768674150936-1d2044ba32d6
     colors: ["Brushed Steel", "Matte Black"],
     rating: 4.6,
     reviewCount: 142,
@@ -275,7 +266,7 @@ export const products: Product[] = [
       "Woven in Scotland from 100% lambswool. Fringed edges, a generous 55x70 size, and a weight that says 'stay on the couch.'",
     price: 198,
     category: "home",
-    image: img("1764004821025-b2c13a764c75"),
+    image: "/images/products/p_013.jpg", // unsplash:1764004821025-b2c13a764c75
     colors: ["Charcoal", "Oat", "Rust"],
     rating: 4.9,
     reviewCount: 88,
@@ -291,7 +282,7 @@ export const products: Product[] = [
       "Each mug is slightly different, because each one is hand-thrown. 12 oz, microwave and dishwasher safe.",
     price: 62,
     category: "home",
-    image: img("1598099968270-f7a302af6d50"),
+    image: "/images/products/p_014.jpg", // unsplash:1598099968270-f7a302af6d50
     colors: ["Sand", "Stone"],
     rating: 4.7,
     reviewCount: 256,
@@ -308,7 +299,7 @@ export const products: Product[] = [
       "A medium-weight merino knit cap with a folded cuff. Warm enough for cold mornings, breathable enough you'll forget you have it on.",
     price: 48,
     category: "accessories",
-    image: img("1664289321767-8442abbd5e26"),
+    image: "/images/products/p_015.jpg", // unsplash:1664289321767-8442abbd5e26
     colors: ["Slate", "Moss", "Bone", "Ember"],
     rating: 4.6,
     reviewCount: 178,
