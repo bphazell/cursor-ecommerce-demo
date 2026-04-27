@@ -29,7 +29,7 @@ export function StarRating({
             className={cn(
               sizeClasses[size],
               star <= Math.round(rating)
-                ? "fill-[var(--color-accent)] text-[var(--color-accent)]"
+                ? "fill-[var(--color-rating)] text-[var(--color-rating)]"
                 : "fill-transparent text-[var(--color-border)]"
             )}
           />
