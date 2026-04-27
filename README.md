@@ -82,9 +82,15 @@ Shared types (`Product`, `Category`, `Review`) live in `src/lib/types.ts`. If yo
 
 ### Imagery
 
-Product, category, and hero photos are hosted on the Unsplash CDN (`images.unsplash.com`) and used under the [Unsplash License](https://unsplash.com/license). Photo IDs are baked into `src/data/products.ts` and `src/data/categories.ts` via a small `img(id)` / `banner(id)` helper, so swapping a photo is a one-line change per product.
+Product, category, and hero photos are vendored in `public/images/`:
 
-To use your own images, either replace the photo IDs (any Unsplash photo URL contains the ID after `photo-`) or change the helper to point at a different host or local `src/assets/` folder.
+- `public/images/products/p_001.jpg` ... `p_015.jpg`
+- `public/images/categories/{outerwear,tops,bottoms,footwear,accessories,home}.jpg`
+- `public/images/heroes/home.jpg`
+
+Credits and source references live in `IMAGE_CREDITS.md`.
+
+To swap a product image, replace the matching file keyed by product ID (for example, `public/images/products/p_003.jpg` for `p_003`). Categories and hero follow the same convention with fixed filenames.
 
 ### Add a new page
 
