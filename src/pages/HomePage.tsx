@@ -1,10 +1,61 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Leaf, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, Truck, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { categories } from "@/data/categories";
 import { getFeaturedProducts, getNewArrivals } from "@/data/products";
+
+const PROMO_STORAGE_KEY = "cascade-promo-holiday-2026";
+
+function PromoStrip() {
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return localStorage.getItem(PROMO_STORAGE_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
+
+  function dismiss() {
+    setVisible(false);
+    try {
+      localStorage.setItem(PROMO_STORAGE_KEY, "1");
+    } catch {
+      /* ignore quota / privacy mode */
+    }
+  }
+
+  if (!visible) return null;
+
+  return (
+    <div
+      role="region"
+      aria-label="Promotion"
+      className="relative flex min-h-10 items-center justify-center border-b border-[var(--color-border)] bg-[var(--color-brand)] px-12 py-2 text-center text-xs text-[var(--color-brand-foreground)] sm:text-sm"
+    >
+      <p className="leading-snug">
+        Free shipping over $75 through Dec 31.{" "}
+        <Link
+          to="/products"
+          className="font-medium underline underline-offset-2 hover:opacity-90"
+        >
+          Shop the Sale
+        </Link>
+      </p>
+      <button
+        type="button"
+        onClick={dismiss}
+        aria-label="Dismiss promo"
+        className="absolute right-3 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[var(--radius-md)] hover:bg-[var(--color-brand-foreground)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-foreground)]"
+      >
+        <X className="h-4 w-4 shrink-0" aria-hidden />
+      </button>
+    </div>
+  );
+}
 
 const valueProps = [
   {
@@ -30,46 +81,49 @@ export function HomePage() {
 
   return (
     <div className="flex flex-col gap-24 pb-12">
-      <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-muted)]/40">
-        <Container>
-          <div className="grid gap-10 py-16 md:grid-cols-2 md:gap-16 md:py-24">
-            <div className="flex flex-col justify-center">
-              <p className="text-xs font-medium uppercase tracking-widest text-[var(--color-muted-foreground)]">
-                Spring Collection
-              </p>
-              <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-                Built for the long walk home.
-              </h1>
-              <p className="mt-5 max-w-md text-base text-[var(--color-muted-foreground)]">
-                Considered apparel, durable goods, and small objects for
-                grounded, intentional living. Made in small batches and meant to
-                last.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/products">
-                  <Button size="lg">
-                    Shop the Collection
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/about">
-                  <Button size="lg" variant="outline">
-                    Our Story
-                  </Button>
-                </Link>
+      <div className="flex flex-col">
+        <PromoStrip />
+        <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-muted)]/40">
+          <Container>
+            <div className="grid gap-10 py-16 md:grid-cols-2 md:gap-16 md:py-24">
+              <div className="flex flex-col justify-center">
+                <p className="text-xs font-medium uppercase tracking-widest text-[var(--color-muted-foreground)]">
+                  Holiday Sale
+                </p>
+                <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+                  The gifts that go the distance.
+                </h1>
+                <p className="mt-5 max-w-md text-base text-[var(--color-muted-foreground)]">
+                  Thoughtful picks for everyone on your list—warm layers,
+                  essentials, and gear worth wrapping. Limited-time pricing while
+                  supplies last.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/products">
+                    <Button size="lg">
+                      Shop the Sale
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link to="/about">
+                    <Button size="lg" variant="outline">
+                      Our Story
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-card)]">
+                <img
+                  src="/images/heroes/home.jpg" // unsplash:1764622737791-5d1d914a366c
+                  alt="Misty mountains in the Pacific Northwest"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
-
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-card)]">
-              <img
-                src="/images/heroes/home.jpg" // unsplash:1764622737791-5d1d914a366c
-                alt="Misty mountains in the Pacific Northwest"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+          </Container>
+        </section>
+      </div>
 
       <section>
         <Container>
