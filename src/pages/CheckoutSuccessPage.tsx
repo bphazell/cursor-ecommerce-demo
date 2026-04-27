@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Package } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -7,18 +7,18 @@ import { formatPrice } from "@/lib/utils";
 import type { Order } from "@/lib/types";
 import { ORDER_STORAGE_KEY } from "@/pages/CheckoutPage";
 
-export function CheckoutSuccessPage() {
-  const [order, setOrder] = useState<Order | null>(null);
+function readOrderFromSession(): Order | null {
+  const raw = sessionStorage.getItem(ORDER_STORAGE_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as Order;
+  } catch {
+    return null;
+  }
+}
 
-  useEffect(() => {
-    const raw = sessionStorage.getItem(ORDER_STORAGE_KEY);
-    if (!raw) return;
-    try {
-      setOrder(JSON.parse(raw) as Order);
-    } catch {
-      setOrder(null);
-    }
-  }, []);
+export function CheckoutSuccessPage() {
+  const [order] = useState<Order | null>(readOrderFromSession);
 
   if (!order) {
     return (

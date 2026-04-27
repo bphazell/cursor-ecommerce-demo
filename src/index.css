@@ -9,27 +9,28 @@
  * like `bg-brand`, `text-brand-foreground`, etc.
  */
 @theme {
-  /* Brand colors */
-  --color-brand: #1f2937;
+  /* Brand colors — palette inspired by Salesforce / SLDS (Cloud Blue + deep brand blue) */
+  --color-brand: #032d60;
   --color-brand-foreground: #ffffff;
-  --color-brand-muted: #6b7280;
-  --color-accent: #f59e0b;
-  --color-accent-foreground: #1f2937;
+  --color-brand-muted: #54698d;
+  --color-accent: #00a1e0;
+  /* Dark navy on Cloud Blue meets WCAG AA for UI text (white on #00a1e0 does not). */
+  --color-accent-foreground: #032d60;
 
   /* Surfaces */
-  --color-background: #fafaf9;
-  --color-foreground: #1c1917;
+  --color-background: #f3f2f2;
+  --color-foreground: #032d60;
   --color-card: #ffffff;
-  --color-card-foreground: #1c1917;
-  --color-muted: #f5f5f4;
-  --color-muted-foreground: #78716c;
-  --color-border: #e7e5e4;
-  --color-input: #e7e5e4;
-  --color-ring: #1f2937;
+  --color-card-foreground: #032d60;
+  --color-muted: #ecebea;
+  --color-muted-foreground: #5c6c7c;
+  --color-border: #dddbda;
+  --color-input: #dddbda;
+  --color-ring: #00a1e0;
 
-  /* Status */
-  --color-success: #16a34a;
-  --color-destructive: #dc2626;
+  /* Status — tuned toward SLDS-style semantic hues */
+  --color-success: #2e844a;
+  --color-destructive: #c23934;
   --color-destructive-foreground: #ffffff;
 
   /* Typography */
