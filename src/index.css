@@ -9,39 +9,39 @@
  * like `bg-brand`, `text-brand-foreground`, etc.
  */
 @theme {
-  /* Brand colors */
-  --color-brand: #1f2937;
-  --color-brand-foreground: #ffffff;
-  --color-brand-muted: #6b7280;
-  --color-accent: #f59e0b;
-  --color-accent-foreground: #1f2937;
+  /* Brand — electric disco: magenta + chartreuse */
+  --color-brand: #c026d3;
+  --color-brand-foreground: #faf5ff;
+  --color-brand-muted: #a855f7;
+  --color-accent: #d9f99d;
+  --color-accent-foreground: #3b0764;
 
-  /* Surfaces */
-  --color-background: #fafaf9;
-  --color-foreground: #1c1917;
-  --color-card: #ffffff;
-  --color-card-foreground: #1c1917;
-  --color-muted: #f5f5f4;
-  --color-muted-foreground: #78716c;
-  --color-border: #e7e5e4;
-  --color-input: #e7e5e4;
-  --color-ring: #1f2937;
+  /* Surfaces — soft lavender cream + punchy cards */
+  --color-background: #f5f0ff;
+  --color-foreground: #2e1065;
+  --color-card: #fffefb;
+  --color-card-foreground: #2e1065;
+  --color-muted: #ede9fe;
+  --color-muted-foreground: #6b21a8;
+  --color-border: #ddd6fe;
+  --color-input: #e9d5ff;
+  --color-ring: #c026d3;
 
   /* Status */
-  --color-success: #16a34a;
-  --color-destructive: #dc2626;
-  --color-destructive-foreground: #ffffff;
+  --color-success: #059669;
+  --color-destructive: #e11d48;
+  --color-destructive-foreground: #fff1f2;
 
-  /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  /* Typography — Syne: geometric, loud, still readable */
+  --font-sans: "Syne", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
 
-  /* Radii */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  /* Radii — chunky, sticker / blob shapes */
+  --radius-sm: 0.625rem;
+  --radius-md: 1.125rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
 }
 
 @layer base {
