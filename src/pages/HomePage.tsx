@@ -54,7 +54,7 @@ export function HomePage() {
                 </Link>
                 <Link to="/about">
                   <Button size="lg" variant="outline">
-                    Our Story
+                    My story
                   </Button>
                 </Link>
               </div>
