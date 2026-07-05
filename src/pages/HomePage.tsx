@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Leaf, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight, BadgePercent, Leaf, ShieldCheck, Truck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ProductGrid } from "@/components/products/ProductGrid";
@@ -66,6 +66,38 @@ export function HomePage() {
                 alt="Misty mountains in the Pacific Northwest"
                 className="h-full w-full object-cover"
               />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div className="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-brand)] text-[var(--color-brand-foreground)]">
+            <div className="flex flex-col gap-6 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
+              <div className="flex gap-4">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)]">
+                  <BadgePercent className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-widest opacity-75">
+                    Summer special
+                  </p>
+                  <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                    20% off orders over $100
+                  </h2>
+                  <p className="mt-2 max-w-xl text-sm opacity-80 sm:text-base">
+                    Refresh your warm-weather kit with a seasonal discount on
+                    qualifying orders.
+                  </p>
+                </div>
+              </div>
+              <Link to="/products" className="self-start md:self-center">
+                <Button variant="accent" size="lg">
+                  Shop summer picks
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
