@@ -66,7 +66,7 @@ export function CheckoutPage() {
       total: totals.total,
     };
 
-    sessionStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(order));
+    sessionStorage.setItem("cascade-last-order-pending", JSON.stringify(order));
     clearCart();
     navigate("/checkout/success");
   };
